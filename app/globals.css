@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* === Tailwind v4 Theme Tokens === */
+@theme {
+  /* Colors */
+  --color-obsidian: #050505;
+  --color-titanium: #D4C5B0;
+  --color-titanium-light: #E5C97A;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-surface-border: rgba(255, 255, 255, 0.08);
+  --color-platinum: #E8E6E0;
+  --color-muted: #7A7875;
+
+  /* Fonts */
+  --font-geologica: 'Geologica', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #050505;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Respect user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Luxury glass surface — used on bento cards */
+.bento-surface {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+}
+
+/* Reviews marquee — CSS animation for performance */
+.marquee-track {
+  animation: marquee-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
